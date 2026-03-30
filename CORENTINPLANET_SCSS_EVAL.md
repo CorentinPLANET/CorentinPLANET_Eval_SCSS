@@ -297,7 +297,9 @@ $i:1;
 }
 ```
 ___
+
 ## Les Fonctions SCSS
+
 Les fonctions scss nous permettent de réaliser du code qui s'adaptent à ce que l'on met dedans.
 
 ```scss
@@ -310,5 +312,20 @@ Les fonctions scss nous permettent de réaliser du code qui s'adaptent à ce que
 // nous donnes l'equivalent de 20px en rem 
 }
  ```
+___
 
- 
+## Le Multi-fichiers SCSS
+
+L'un des grands avantages du SCSS est sa structure multi-fichiers.
+
+En Effet, le SCSS à plusieurs outils permetant de faire le lien entre différent fichier afin de trier les différents élements du site ou de la page, nous pouvons par exemple créer plusieurs fichier pour chacune des pages ou encore créer un fichier qui stocke toutes les variables et ensuite les envoies au fichier qui utilisent les différentes variables à l'aide de ```@use``` et ```@forward```
+
+Par exemple nous pouvons créer un fichier **_variables** (le **"\_"** permet au scss de ne pas écrire le fichier en css)
+
+```scss
+$black: #2b2e32
+```
+
+Nous pouvons maintenant utiliser ```@forward``` afin de donner accès aux autre fichier d'utiliser cette variable
+
+Et utiliser ```@use _variables``` dans le fichier dans lequel nous voulons utiliser la variable
