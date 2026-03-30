@@ -42,7 +42,7 @@ La plus grosse différence vient des fonctionnalité de **rangement** qu'elle ra
 }
 ```
 
-le rendu en CSS sera:
+> **Le rendu en CSS sera:**
 
 ```css
 .myCard{
@@ -212,17 +212,46 @@ La boucle ```@for``` permet d'éxecuter du code un **nombre de fois prédetermin
 $tailles: 0.5rem, 1rem, 2rem, 2.5rem;
 
 @for $i from 1 through length($tailles) {
-    .font-size#{$i} {
+    .font-size-#{$i} {
         font-size: nth($tailles, #{$i})
     }
 }
 ```
+> **Le rendu en CSS sera:**
 
+```css
+ .col-1 {
+    width: 25%
+ }
+  .col-2 {
+    width: 50%
+ }
+  .col-3 {
+    width: 75%
+ }
+  .col-4 {
+    width: 100%
+ }
+
+ .font-size-1 {
+    font-size: 0.5rem
+ }
+  .font-size-2 {
+    font-size: 1rem
+ }
+  .font-size-3 {
+    font-size: 2rem
+ }
+  .font-size-4 {
+    font-size: 2.5rem
+ }
+```
 ### La Boucle ```@each```
 
 La boucle ```@each``` permet d'itérer sur chacun des élements d'une **list** ou d'un **map**.
 
 ```scss
+
 $couleurs:(
   'black': #192a36,
   'white': #dedede,
@@ -230,32 +259,47 @@ $couleurs:(
   'red': #ff9797,
 );
 
-@each $couleur in $couleurs {
-  .texte-#{$couleur} {
-    color: $couleur;
-  }
-}
-
 @each $nom,$couleur in $couleurs {
   .texte-#{$nom} {
     color: $couleur;
   }
 }
 ```
+> **Le rendu en CSS sera:**
 
+```css
+.texte-black{
+    color:#192a36
+}
+.texte-white{
+    color:#dedede
+}
+.texte-green{
+    color:#baff9f
+}
+.texte-red{
+    color:#ff9797
+}
+```
 
 ### La Boucle ```@while```
 
+La boucle ```@while``` permet d'executer du code tant que la condition de sortie n'est pas remplie.
 
+```scss
+$i:1;
 
-
-
-
-
-
+@while $i != 3 {
+.font-#{$i} {
+    font-size: 4px * $i
+    }
+    $i: $i + 1
+}
+```
 ___
 ## Les Fonctions SCSS
 Les fonctions scss nous permettent de réaliser du code qui s'adaptent à ce que l'on met dedans.
+
 ```scss
 @function rem($px) {
     @return $px / 16px * 1rem;
@@ -266,3 +310,5 @@ Les fonctions scss nous permettent de réaliser du code qui s'adaptent à ce que
 // nous donnes l'equivalent de 20px en rem 
 }
  ```
+
+ 
